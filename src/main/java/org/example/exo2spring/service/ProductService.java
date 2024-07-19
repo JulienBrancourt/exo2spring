@@ -70,15 +70,7 @@ public class ProductService {
                 .findFirst()
                 .orElse(null);
     }
-
-//    public Product getProductByCategoryAndPriceMax(String category, Double price) {
-//        return products
-//                .stream()
-//                .filter(p -> p.getCategory().equals("category"))
-//                .max((product,price -> product.compareTo(price))
-//                .get();
-//    }
-
+    
     public List<Product> getProductByCategoryAndPriceMax(String category, Double price) {
         return products
                 .stream()
