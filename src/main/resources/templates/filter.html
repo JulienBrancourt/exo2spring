@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Recherche</title>
+</head>
+<body>
+<h1>Produits sélectionnés : </h1>
+
+<div>
+    <ul th:if="${products != null}">
+        <li th:each="p : ${products}">
+            <span th:text="${p.getName}"></span>
+            <span>/</span>
+            <span th:text="${p.getCategory}"></span>
+            <span>/</span>
+            <span th:text="${p.getPrice}"></span>
+        </li>
+    </ul>
+</div>
+</body>
+</html>
