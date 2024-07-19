@@ -70,7 +70,7 @@ public class ProductService {
                 .findFirst()
                 .orElse(null);
     }
-    
+
     public List<Product> getProductByCategoryAndPriceMax(String category, Double price) {
         return products
                 .stream()
