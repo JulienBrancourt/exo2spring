@@ -36,10 +36,16 @@ public class ProductController {
     }
 
     @GetMapping("/filter")
-    public String filterProduct(@RequestParam("category") String category,@RequestParam ("pricemax") double price,
-                                Model model) {
-        List<Product> products = productService.getProductByCategoryAndPriceMax(category, price);
-        model.addAttribute("products", products);
-        return "filter";
+    //RequestParam pour le paramètre optionnel
+    public String filterProduct(
+            @RequestParam(value = "category", required = false, defaultValue = "bricolage") String category,
+            @RequestParam (value = "pricemax", required = false, defaultValue = "100") double price,
+            Model model) {
+        List<Product> filterProducts = productService.getProductByCategoryAndPriceMax(category, price);
+        model.addAttribute("products", filterProducts);
+//        return "filter";
+        return "pageall"; // permet d'afficher la sélection dans la même page que la liste globale, et donc de
+        // profiter du tableau html!
+
     }
 }
